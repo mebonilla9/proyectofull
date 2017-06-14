@@ -1,10 +1,12 @@
 package co.appreactor.proyectofull.modelo.entidades;
 
+import java.io.Serializable;
+
 /**
  * Created by Capacitaciones_pc7 on 14/06/2017.
  */
 
-public class Agenda {
+public class Agenda implements Serializable{
 
     private String nombre;
     private String telefono;

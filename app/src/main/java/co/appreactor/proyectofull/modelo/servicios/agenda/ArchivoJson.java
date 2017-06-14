@@ -1,6 +1,7 @@
 package co.appreactor.proyectofull.modelo.servicios.agenda;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -25,9 +26,10 @@ import co.appreactor.proyectofull.modelo.entidades.Agenda;
 
 public class ArchivoJson implements Archivador {
 
-    private final String NOMBRE_ARCHIVO = "/agenda_json.txt";
+    private final String NOMBRE_ARCHIVO = "agenda_json.txt";
 
     public ArchivoJson(Context contexto) {
+        Log.v("RUTA_ARCHIVO",RUTA_ARCHIVO + File.separator + NOMBRE_ARCHIVO);
         try {
             File carpetaAgenda = new File(RUTA_ARCHIVO);
             if (!carpetaAgenda.exists()) {
