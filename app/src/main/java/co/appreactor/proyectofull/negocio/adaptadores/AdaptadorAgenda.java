@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -46,6 +47,15 @@ public class AdaptadorAgenda extends BaseAdapter {
             convertView = LayoutInflater.from(contexto)
                     .inflate(R.layout.item_lista,null);
         }
-        return null;
+
+        TextView txtItemNombre = (TextView) convertView.findViewById(R.id.txtItemNombre);
+        TextView txtItemTelefono = (TextView) convertView.findViewById(R.id.txtItemTelefono);
+
+        Agenda contacto = listaAgenda.get(position);
+
+        txtItemNombre.setText(contacto.getNombre());
+        txtItemTelefono.setText(contacto.getTelefono());
+
+        return convertView;
     }
 }

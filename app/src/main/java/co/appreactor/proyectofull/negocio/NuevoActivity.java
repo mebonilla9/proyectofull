@@ -45,7 +45,7 @@ public class NuevoActivity extends AppCompatActivity {
         aceptarDialog = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(NuevoActivity.this,ListaActivity.class));
+                startActivity(new Intent(NuevoActivity.this, ListaActivity.class));
             }
         };
 
@@ -68,7 +68,7 @@ public class NuevoActivity extends AppCompatActivity {
                     AlertaUtil.mostrarAlerta("Registro de contacto","El contacto se ha registrado correctamente",
                             aceptarDialog,null,NuevoActivity.this);
                 } catch(IOException ioe){
-
+                    Log.e("Registro agenda", ioe.getMessage());
                 }
             }
         });

@@ -10,18 +10,19 @@
     tools:showIn="@layout/activity_lista">
 
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/txtBuscar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Buscar" />
 
         <ListView
             android:id="@+id/lstContactos"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <EditText
-            android:id="@+id/txtBuscar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Buscar" />
     </android.support.design.widget.TextInputLayout>
 </LinearLayout>

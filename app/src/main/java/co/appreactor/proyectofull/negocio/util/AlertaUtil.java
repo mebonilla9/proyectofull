@@ -23,6 +23,7 @@ public final class AlertaUtil {
         alerta.setMessage(mensaje);
         alerta.setPositiveButton(R.string.aceptar_btn,aceptar);
         alerta.setNegativeButton(R.string.cancelar_btn,cancelar);
+        alerta.show();
     }
 
 }
