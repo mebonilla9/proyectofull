@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.appreactor.proyectofull">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +29,10 @@
             android:label="@string/title_activity_lista"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".negocio.NuevoActivity" />
-        <activity android:name=".negocio.DetalleActivity"></activity>
+        <activity android:name=".negocio.DetalleActivity" />
+        <activity
+            android:name=".negocio.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
