@@ -6,6 +6,10 @@
             android:id="@+id/nav_agenda"
             android:icon="@drawable/contacts"
             android:title="Agenda" />
+        <item
+            android:id="@+id/nav_navegador"
+            android:icon="@drawable/contacts"
+            android:title="Navegador" />
     </group>
 
     <item android:title="Configuración">

@@ -21,6 +21,7 @@ import co.appreactor.proyectofull.modelo.dto.RespuestaDTO;
 import co.appreactor.proyectofull.modelo.entidades.Usuario;
 import co.appreactor.proyectofull.modelo.servicios.peticiones.GestorPeticiones;
 import co.appreactor.proyectofull.negocio.util.CryptoUtil;
+import co.appreactor.proyectofull.negocio.util.PreferenciasUtil;
 
 public class LoginActivity extends AppCompatActivity implements Handler.Callback{
 
@@ -65,6 +66,11 @@ public class LoginActivity extends AppCompatActivity implements Handler.Callback
         }
         if (respuesta.getDatos() != null){
             Toast.makeText(this, "Bienvenido: "+respuesta.getDatos().getNombre(), Toast.LENGTH_LONG).show();
+            PreferenciasUtil.guardarPreferencias("nombreUsuario",respuesta.getDatos().getNombre(),LoginActivity.this);
+            PreferenciasUtil.guardarPreferencias("correoUsuario",respuesta.getDatos().getCorreo(),LoginActivity.this);
+            PreferenciasUtil.guardarPreferencias("contrasenaUsuario",respuesta.getDatos().getContrasena(),LoginActivity.this);
+            PreferenciasUtil.guardarPreferencias("idUsuario",respuesta.getDatos().getIdUsuario().toString(),LoginActivity.this);
+            PreferenciasUtil.guardarPreferencias("estadoUsuario",respuesta.getDatos().getEstado().toString(),LoginActivity.this);
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
         }
     }

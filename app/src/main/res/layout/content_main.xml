@@ -9,9 +9,9 @@
     tools:context="co.appreactor.proyectofull.negocio.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
+    <FrameLayout
+        android:id="@+id/contenedorFragmentos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido!" />
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
