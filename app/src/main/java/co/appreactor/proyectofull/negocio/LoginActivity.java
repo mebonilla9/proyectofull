@@ -20,8 +20,9 @@ import co.appreactor.proyectofull.R;
 import co.appreactor.proyectofull.modelo.dto.RespuestaDTO;
 import co.appreactor.proyectofull.modelo.entidades.Usuario;
 import co.appreactor.proyectofull.modelo.servicios.peticiones.GestorPeticiones;
+import co.appreactor.proyectofull.negocio.util.CryptoUtil;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements Handler.Callback{
 
     private ImageView imageView3;
     private TextInputLayout txtCorreoLogin;
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         this.txtContrasenaLogin = (TextInputLayout) findViewById(R.id.txtContrasenaLogin);
         this.txtCorreoLogin = (TextInputLayout) findViewById(R.id.txtCorreoLogin);
         this.imageView3 = (ImageView) findViewById(R.id.imageView3);
+        this.handler = new Handler(this);
         asignarEventos();
     }
 
@@ -52,40 +54,37 @@ public class LoginActivity extends AppCompatActivity {
                 GestorPeticiones.enviarPeticion("login", data, handler);
             }
         });
-
-        handler = new Handler(new Handler.Callback() {
-            @Override
-            public boolean handleMessage(Message msg) {
-                switch (msg.what) {
-                    case 1:
-                        resultadoLogin(msg.obj);
-                        break;
-                }
-                return false;
-            }
-        });
     }
 
     private void resultadoLogin(Object obj) {
-        Type tipoRespuesta = new TypeToken<RespuestaDTO>(){}.getType();
-        RespuestaDTO respuesta = new Gson().fromJson(obj.toString(),tipoRespuesta);
+        Type tipoRespuesta = new TypeToken<RespuestaDTO<Usuario>>(){}.getType();
+        RespuestaDTO<Usuario> respuesta = new Gson().fromJson(obj.toString(),tipoRespuesta);
         if (respuesta.getCodigo() != 1){
             Toast.makeText(this, respuesta.getMensaje(), Toast.LENGTH_LONG).show();
             return;
         }
-        Usuario usuario = (Usuario) respuesta.getDatos();
-        if (usuario != null){
-            Toast.makeText(this, "Bienvenido: "+usuario.getNombre(), Toast.LENGTH_LONG).show();
+        if (respuesta.getDatos() != null){
+            Toast.makeText(this, "Bienvenido: "+respuesta.getDatos().getNombre(), Toast.LENGTH_LONG).show();
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
         }
     }
 
     private String generarDataLogin(String correo, String contrasena) {
-        StringBuilder constructorData = new StringBuilder("?");
+        StringBuilder constructorData = new StringBuilder();
         constructorData.append("correo=");
         constructorData.append(correo);
         constructorData.append("&contrasena=");
-        constructorData.append(contrasena);
+        constructorData.append(CryptoUtil.cifrarSha384(contrasena));
         return constructorData.toString();
+    }
+
+    @Override
+    public boolean handleMessage(Message msg) {
+        switch (msg.what) {
+            case 1:
+                resultadoLogin(msg.obj);
+                break;
+        }
+        return false;
     }
 }

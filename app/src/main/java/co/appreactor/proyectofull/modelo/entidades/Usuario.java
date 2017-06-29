@@ -1,10 +1,12 @@
 package co.appreactor.proyectofull.modelo.entidades;
 
+import java.io.Serializable;
+
 /**
  * Created by Capacitaciones_pc7 on 27/06/2017.
  */
 
-public class Usuario {
+public class Usuario implements Serializable{
 
     private Long idUsuario;
     private String nombre;

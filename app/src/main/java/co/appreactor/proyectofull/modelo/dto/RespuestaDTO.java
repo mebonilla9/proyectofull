@@ -4,11 +4,11 @@ package co.appreactor.proyectofull.modelo.dto;
  * Created by Capacitaciones_pc7 on 27/06/2017.
  */
 
-public class RespuestaDTO {
+public class RespuestaDTO<T> {
 
     private int codigo;
     private String mensaje;
-    private Object datos;
+    private T datos;
 
 
     public int getCodigo() {
@@ -27,11 +27,11 @@ public class RespuestaDTO {
         this.mensaje = mensaje;
     }
 
-    public Object getDatos() {
+    public T getDatos() {
         return datos;
     }
 
-    public void setDatos(Object datos) {
+    public void setDatos(T datos) {
         this.datos = datos;
     }
 }

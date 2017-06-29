@@ -17,7 +17,7 @@ import java.net.URL;
 
 public final class GestorPeticiones {
 
-    private final static String URL_SERVIDOR = "http://appreactor.co/proyectofull/usuario/";
+    private final static String URL_SERVIDOR = "http://appreactor.co:80/proyectofull/usuario/";
 
     public static void enviarPeticion(final String servicio, final String data, final Handler handler) {
         Thread hiloPeticion = new Thread(new Runnable() {
@@ -29,6 +29,7 @@ public final class GestorPeticiones {
                     conexion.setDoInput(true);
                     conexion.setDoOutput(true);
                     conexion.setRequestMethod("POST");
+                    conexion.setRequestProperty("Accept", "application/json");
 
                     // buffer de escritura
                     OutputStreamWriter salida = new OutputStreamWriter(
