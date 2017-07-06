@@ -8,8 +8,12 @@
             android:title="Agenda" />
         <item
             android:id="@+id/nav_navegador"
-            android:icon="@drawable/contacts"
+            android:icon="@drawable/ic_menu_send"
             android:title="Navegador" />
+        <item
+            android:id="@+id/nav_pokedex"
+            android:icon="@drawable/atom"
+            android:title="Pokedex" />
     </group>
 
     <item android:title="Configuración">

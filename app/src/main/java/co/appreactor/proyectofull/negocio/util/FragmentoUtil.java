@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import co.appreactor.proyectofull.R;
+import co.appreactor.proyectofull.negocio.fragmentos.PokedexFragment;
 import co.appreactor.proyectofull.negocio.fragmentos.WebViewFragment;
 
 /**
@@ -22,6 +23,10 @@ public final class FragmentoUtil {
             case R.id.nav_navegador:
                 fragmento = new WebViewFragment();
                 tag = "Navegador";
+                break;
+            case R.id.nav_pokedex:
+                fragmento = new PokedexFragment();
+                tag = "Pokedex";
                 break;
             default:
                 fragmento = new Fragment();
