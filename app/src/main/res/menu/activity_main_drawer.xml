@@ -14,6 +14,10 @@
             android:id="@+id/nav_pokedex"
             android:icon="@drawable/atom"
             android:title="Pokedex" />
+        <item
+            android:id="@+id/nav_maps"
+            android:icon="@drawable/maps"
+            android:title="Mapas" />
     </group>
 
     <item android:title="Configuración">

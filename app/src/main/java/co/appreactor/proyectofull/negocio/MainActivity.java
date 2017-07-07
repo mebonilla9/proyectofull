@@ -104,7 +104,9 @@ public class MainActivity extends AppCompatActivity
 
         if (item.getItemId() == R.id.nav_agenda){
             startActivity(new Intent(MainActivity.this,ListaActivity.class));
-        } else{
+        } else if (item.getItemId() == R.id.nav_maps){
+            startActivity(new Intent(MainActivity.this,MapsActivity.class));
+        }else{
             FragmentoUtil.obtenerFragmentoSeleccionado(
                     item.getItemId(),
                     null,

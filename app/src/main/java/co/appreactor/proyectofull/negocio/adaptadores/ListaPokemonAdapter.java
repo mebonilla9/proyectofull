@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +43,12 @@ public class ListaPokemonAdapter extends RecyclerView.Adapter<ListaPokemonAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         Pokemon pokemon = dataSource.get(position);
 
-        holder.txtNombrePokemon.setText(pokemon.getNumber()+" - "+pokemon.getName());
-        Glide.with(contexto).asBitmap()
+        holder.txtNombrePokemon.setText(pokemon.getName());
+        Glide.with(contexto)
                 .load("http://pokeapi.co/media/sprites/pokemon/"+pokemon.getNumber()+".png")
+                .centerCrop()
+                .crossFade()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.imgPokemon);
     }
 
