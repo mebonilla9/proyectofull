@@ -1,4 +1,4 @@
-package co.appreactor.proyectofull.negocio;
+package co.appreactor.proyectofull.negocio.actividades;
 
 import android.content.Intent;
 import android.os.Bundle;

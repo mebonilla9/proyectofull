@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context="co.appreactor.proyectofull.negocio.LoginActivity">
+    tools:context="co.appreactor.proyectofull.negocio.actividades.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

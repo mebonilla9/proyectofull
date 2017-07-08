@@ -10,4 +10,7 @@
     <string name="aceptar_btn">Aceptar</string>
     <string name="cancelar_btn">Cancelar</string>
     <string name="title_activity_maps">Map</string>
+    <string name="fcm_token" translatable="false">co.appreactor.proyectofull.token_fcm</string>
+    <string name="service_id" translatable="false">co.appreactor.proyectofull.negocio.servicios.GestorIdMensajeriaPush</string>
+    <string name="tema_notificacion" translatable="false">notificacionProyectoFull</string>
 </resources>
